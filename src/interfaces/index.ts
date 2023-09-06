@@ -9,7 +9,7 @@ import {
   CategoryReturn,
   CategorysRead,
   CategoryHousesRead,
-  CategoryReturnRealEstate 
+  CategoryReturnRealEstate,
 } from "./category.interfaces";
 import {
   RealEstateCreate,
@@ -17,7 +17,7 @@ import {
   RealEstatesRead,
   RealEstateSchedule,
 } from "./realEstate.interface";
-import { ScheduleCreate } from "./schedule.interfaces";
+import { ScheduleCreate, ScheduleRealEstate,ScheduleUserRealEstateReturn } from "./schedule.interfaces";
 
 export {
   UserCreate,
@@ -33,5 +33,7 @@ export {
   RealEstateReturn,
   RealEstatesRead,
   ScheduleCreate,
-  RealEstateSchedule
+  RealEstateSchedule,
+  ScheduleRealEstate,
+  ScheduleUserRealEstateReturn
 };

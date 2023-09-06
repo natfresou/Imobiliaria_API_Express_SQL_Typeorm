@@ -8,9 +8,10 @@ export const verifyUserPermission = (
 ): void => {
   const { id } = req.params;
   const { sub, admin } = res.locals.decoded;
-  console.log(sub)
 
-  if (admin) return next();
+  if (admin) {
+    return next();
+  }
 
   if (id !== sub) {
     throw new AppError("Insufficient permission", 403);

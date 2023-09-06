@@ -1,15 +1,11 @@
-// src/routes.ts
 import { Router } from "express";
 import { validateBody } from "../middlewares/validateBody.middleware";
-import { uniqueName } from "../middlewares/uniqueName.middleware";
 import {
   createCategoryController,
   readCategoryController,
   readRealEstateFromCategoryController,
 } from "../controllers";
-import {
-  categoryCreateSchema
-} from "../schemas";
+import { categoryCreateSchema } from "../schemas";
 import verifyToken from "../middlewares/verifyToken.middleware";
 import { verifyUserPermission } from "../middlewares/verifyUserPermission.middleware";
 

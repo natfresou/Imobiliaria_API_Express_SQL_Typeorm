@@ -11,11 +11,22 @@ import {
   categoryCreateSchema,
   categoryReadSchema,
   categoryHousesReadSchema,
-  categoryReturnRealEstateSchema
+  categoryReturnRealEstateSchema,
 } from "./category.schemas";
-import{addressSchema,addressCreateSchema} from "./address.schemas"
-import{realEstateSchema,realEstateCreateSchema,realEstatesReadSchema, realEstateReturnSchema,realEstateScheduleSchema } from "./realEstate.schemas"
-import {scheduleCreate,scheduleReturn} from "./schedule.schemas"
+import { addressSchema, addressCreateSchema } from "./address.schemas";
+import {
+  realEstateSchema,
+  realEstateCreateSchema,
+  realEstatesReadSchema,
+  realEstateReturnSchema,
+  realEstateScheduleSchema,
+} from "./realEstate.schemas";
+import {
+  scheduleCreate,
+  scheduleReturn,
+  scheduleRealEstateReturn,
+  scheduleUserRealEstateReturn
+} from "./schedule.schemas";
 
 export {
   userSchema,
@@ -29,7 +40,15 @@ export {
   categoryReadSchema,
   categoryHousesReadSchema,
   categoryReturnRealEstateSchema,
-  addressSchema,addressCreateSchema,
-  realEstateSchema,realEstateCreateSchema,realEstatesReadSchema, realEstateReturnSchema,realEstateScheduleSchema,
-  scheduleCreate,scheduleReturn
+  addressSchema,
+  addressCreateSchema,
+  realEstateSchema,
+  realEstateCreateSchema,
+  realEstatesReadSchema,
+  realEstateReturnSchema,
+  realEstateScheduleSchema,
+  scheduleCreate,
+  scheduleReturn,
+  scheduleRealEstateReturn,
+  scheduleUserRealEstateReturn
 };

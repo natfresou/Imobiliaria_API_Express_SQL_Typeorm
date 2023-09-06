@@ -8,6 +8,8 @@ export const verifyIdExists = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
+  const {id} = req.params
+
   const foundUser: User | null = await userRepo.findOneBy({
     id: Number(req.params.id),
   });

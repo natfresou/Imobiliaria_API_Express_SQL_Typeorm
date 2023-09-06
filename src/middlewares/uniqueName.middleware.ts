@@ -8,17 +8,16 @@ export const uniqueName = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  
   const { name } = req.body;
 
   if (!name) {
     return next();
   }
 
-  const userName: User| null = await userRepo.findOneBy({
+  const userName: User | null = await userRepo.findOneBy({
     name: req.body.name,
   });
- 
+
   if (userName) {
     throw new AppError("User already exists.", 409);
   }

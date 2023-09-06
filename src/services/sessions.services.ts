@@ -5,21 +5,21 @@ import { SessionCreate, SessionReturn } from "../interfaces/session.interfaces";
 import { userRepo } from "../repositories";
 import { User } from "../entities";
 
-const createSessionService = async ( payload: SessionCreate): Promise<SessionReturn> => {
-
-  const userFaund: User| null = await userRepo.findOneBy({
-     email: payload.email,
+const createSessionService = async (
+  payload: SessionCreate
+): Promise<SessionReturn> => {
+  const userFaund: User | null = await userRepo.findOneBy({
+    email: payload.email,
   });
- 
-  console.log(userFaund,"userFoud")
-  console.log(payload)
 
   if (!userFaund) {
     throw new AppError("Invalid credentials", 401);
   }
 
-  const samePassword: boolean = await compare(payload.password, userFaund.password);
-  console.log(samePassword,"same")
+  const samePassword: boolean = await compare(
+    payload.password,
+    userFaund.password
+  );
   if (!samePassword) {
     throw new AppError("Invalid credentials", 401);
   }
@@ -33,5 +33,4 @@ const createSessionService = async ( payload: SessionCreate): Promise<SessionRet
   return { token };
 };
 
-export  { createSessionService  };
-
+export { createSessionService };

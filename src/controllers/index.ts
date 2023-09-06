@@ -8,13 +8,16 @@ import { loginUserController } from "./session.controllers";
 import {
   createCategoryController,
   readCategoryController,
-  readRealEstateFromCategoryController
+  readRealEstateFromCategoryController,
 } from "./category.controllers";
 import {
   createRealEstateController,
   readRealEstateController,
 } from "./realEstate.controllers";
-import {createScheduleController} from "./schedule.controllers"
+import {
+  createScheduleController,
+  readScheduleRealEstateController,
+} from "./schedule.controllers";
 
 export {
   createUserController,
@@ -27,5 +30,6 @@ export {
   readRealEstateFromCategoryController,
   createRealEstateController,
   readRealEstateController,
-  createScheduleController
+  createScheduleController,
+  readScheduleRealEstateController,
 };

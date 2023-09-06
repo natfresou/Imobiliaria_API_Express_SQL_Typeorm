@@ -8,17 +8,16 @@ export const uniqueEmail = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  
   const { email } = req.body;
 
   if (!email) {
     return next();
   }
 
-  const userEmail: User| null = await userRepo.findOneBy({
-   email: req.body.email,
+  const userEmail: User | null = await userRepo.findOneBy({
+    email: req.body.email,
   });
- 
+
   if (userEmail) {
     throw new AppError("Email already exists", 409);
   }

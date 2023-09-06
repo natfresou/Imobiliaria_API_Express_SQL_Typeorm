@@ -9,8 +9,6 @@ export const handleErrors = (
   res: Response,
   next: NextFunction
 ): Response => {
-
-  console.log("erro henddle")
   if (error instanceof AppError) {
     return res.status(error.status).json({ message: error.message });
   }
@@ -21,7 +19,5 @@ export const handleErrors = (
   if (error instanceof JsonWebTokenError) {
     return res.status(401).json({ message: error.message });
   }
-
-  console.error(error);
   return res.status(500).json({ error: "Internal server error" });
 };

@@ -8,19 +8,18 @@ import { createSessionService } from "./sessions.services";
 import {
   createCategoryService,
   readCategoryService,
-  readRealEstateFromCategoryService
+  readRealEstateFromCategoryService,
 } from "./category.services";
 
+import {
+  createRealEstateService,
+  readRealEstateService,
+} from "./realEstate.services";
 
 import {
-    createRealEstateService,readRealEstateService
-  } from "./realEstate.services"
-
-
- import {
-    createScheduleService
-  } from "./schedule.services"
-  
+  createScheduleService,
+  readScheduleRealEstateService,
+} from "./schedule.services";
 
 export {
   createUserService,
@@ -31,7 +30,8 @@ export {
   createCategoryService,
   readCategoryService,
   readRealEstateFromCategoryService,
-  createRealEstateService,readRealEstateService,
-  createScheduleService
-
+  createRealEstateService,
+  readScheduleRealEstateService,
+  createScheduleService,
+  readRealEstateService,
 };

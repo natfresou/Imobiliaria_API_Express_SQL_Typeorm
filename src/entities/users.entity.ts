@@ -23,7 +23,7 @@ class User {
   @Column({ type: "varchar", length: 45, unique: true })
   email: string;
 
-  @Column({ default: "false" })
+  @Column({ default: false })
   admin: boolean;
 
   @Column({ type: "varchar", length: 120 })

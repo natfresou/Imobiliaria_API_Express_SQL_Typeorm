@@ -2,7 +2,6 @@
 import { Router } from "express";
 
 import { validateBody } from "../middlewares/validateBody.middleware";
-import { uniqueName } from "../middlewares/uniqueName.middleware";
 import {
   createUserController,
   destroyUserController,
@@ -28,8 +27,8 @@ usersRouter.get("", verifyToken, verifyUserPermission, readUserController);
 usersRouter.patch(
   "/:id",
   verifyToken,
-  verifyUserPermission,
   verifyIdExists,
+  verifyUserPermission,
   validateBody(userUpdateSchema),
   uniqueEmail,
   updateUserController
@@ -37,8 +36,8 @@ usersRouter.patch(
 usersRouter.delete(
   "/:id",
   verifyToken,
-  verifyUserPermission,
   verifyIdExists,
+  verifyUserPermission,
   destroyUserController
 );
 

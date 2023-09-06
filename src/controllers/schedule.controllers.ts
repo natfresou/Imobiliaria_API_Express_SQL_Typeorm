@@ -1,16 +1,27 @@
 import { Request, Response } from "express";
-import { RealEstateReturn, RealEstatesRead} from "../interfaces";
-import { createRealEstateService, createScheduleService, readRealEstateService } from "../services";
+import {
+  createScheduleService,
+  readScheduleRealEstateService,
+} from "../services";
+import { ScheduleRealEstate } from "../interfaces";
 
-
-const createScheduleController = async (req: Request, res: Response): Promise<Response> => {
- await createScheduleService(req.body);
-  return res.status(201).json({"message": "Schedule created"});
+const createScheduleController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const { sub } = res.locals.decoded;
+  await createScheduleService(req.body, sub);
+  return res.status(201).json({ message: "Schedule created" });
 };
-// onst readRealEstateController = async (req: Request, res: Response): Promise<Response> => {
-//   const realEstates: RealEstatesRead= await readRealEstateService();
-//   return res.status(200).json(realEstates);
-// };
 
+const readScheduleRealEstateController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const { admin } = res.locals.decoded;
+  const realEstates: ScheduleRealEstate | void =
+    await readScheduleRealEstateService(Number(req.params.id),admin);
+  return res.status(200).json(realEstates);
+};
 
-export { createScheduleController};
+export { createScheduleController, readScheduleRealEstateController };

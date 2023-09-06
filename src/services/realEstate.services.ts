@@ -1,5 +1,4 @@
 import { addressRepo, categoryRepo, realEstateRepo } from "../repositories";
-
 import {
   CategoryReturn,
   RealEstateCreate,
@@ -11,8 +10,7 @@ import { AppError } from "../errors";
 const createRealEstateService = async (
   data: RealEstateCreate
 ): Promise<RealEstateReturn> => {
-
-  const{address, categoryId, ...body} = data
+  const { address, categoryId, ...body } = data;
 
   const category: CategoryReturn | null = await categoryRepo.findOneBy({
     id: Number(categoryId),
@@ -21,7 +19,9 @@ const createRealEstateService = async (
     throw new AppError("Category not found", 404);
   }
 
-  const foundAddress: AddressReturn | null = await addressRepo.findOneBy(address);
+  const foundAddress: AddressReturn | null = await addressRepo.findOneBy(
+    address
+  );
 
   if (foundAddress) {
     throw new AppError("Address already exists", 409);
@@ -41,7 +41,6 @@ const readRealEstateService = async (): Promise<RealEstateReturn[]> => {
   const realEstates = await realEstateRepo.find({
     relations: {
       address: true,
-      category: true,
     },
   });
 
